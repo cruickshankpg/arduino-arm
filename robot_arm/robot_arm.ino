@@ -1,10 +1,3 @@
-#include <Dhcp.h>
-#include <Dns.h>
-#include <Ethernet.h>
-#include <EthernetClient.h>
-#include <EthernetServer.h>
-#include <EthernetUdp.h>
-
 #include <Servo.h>
 
 Servo baseServo;
@@ -17,18 +10,20 @@ int GRIP_CLOSE = 110;
 void setup() {
   Serial.begin(9600);
   Serial.write("Arm Control\n");
-  Serial.write("[lrb]angle\n");
+  Serial.write("b0-180anticlockwise\n");
+  Serial.write("l90-180\n");
+  Serial.write("r60-150\n");
   Serial.write("g[01]\n");
   
   baseServo.write(90);
   baseServo.attach(3);
   delay(100);
   
-  rArmServo.write(45);
+  rArmServo.write(80);
   rArmServo.attach(5);
   delay(100);
 
-  lArmServo.write(100);
+  lArmServo.write(120);
   lArmServo.attach(6);
 
   delay(100);
